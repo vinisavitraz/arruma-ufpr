@@ -1,6 +1,5 @@
 package com.ufpr.br.cmmsufpr.incident;
 
-import com.ufpr.br.cmmsufpr.database.DatabaseConnection;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
