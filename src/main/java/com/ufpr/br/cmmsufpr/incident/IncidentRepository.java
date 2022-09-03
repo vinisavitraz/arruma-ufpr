@@ -18,11 +18,16 @@ public class IncidentRepository {
         ResultSet rs = statement.executeQuery("SELECT * FROM incident");
 
         while (rs.next()) {
-            int id = rs.getInt("id");
-            String title = rs.getString("title");
-            String description = rs.getString("description");
+            IncidentModel incident = new IncidentModel(
+                rs.getInt("id"),
+                rs.getString("title"),
+                rs.getString("description"),
+                rs.getString("status"),
+                rs.getDate("open_date"),
+                rs.getDate("end_date")
+            );
 
-            results.add(new IncidentModel(id, title, description));
+            results.add(incident);
         }
 
         statement.close();
