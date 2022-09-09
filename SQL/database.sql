@@ -37,3 +37,4 @@ CREATE TABLE IF NOT EXISTS user_incident (
 ##### SEED #####
 
 INSERT INTO incident (id, title, description) VALUES (1, 'Problema na descarga', 'Descarga nao funciona!');
+INSERT INTO building (id, name, address) VALUES (1, 'Sept', 'R. Dr. Alcides Vieira Arcoverde, 1225 - Jardim das Américas, Curitiba - PR');
