@@ -12,32 +12,26 @@
 <div th:replace="fragments/header :: header">...</div>
 <div class="height-100">
   </br>
-  <div class="row my-3">
-    <div class="col-10">
-      <h1>Prédios</h1>
+  <h2>Atualizar local</h2>
+  </br>
+  <form method="POST" th:object="${location}" th:action="@{/update-location}" action="#" >
+    <input type="hidden" id="id" name="id" th:field="*{id}"/>
+    <div class="col-sm-6">
+      <label for="name" class="form-label">Nome</label>
+      <input type="text" class="form-control" id="name" th:field="*{name}">
     </div>
-    <div class="col-2">
-      <a class="btn btn-success" href="/create-building" role="button">Criar prédio</a>
+    </br>
+    <div class="col-sm-6">
+      <label for="description" class="form-label">Descrição</label>
+      <input type="text" class="form-control" id="description" th:field="*{description}">
     </div>
-  </div>
-  <div class="row">
-    <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Endereço</th>
-      </tr>
-      </thead>
-      <tbody>
-        <tr th:each="building : ${buildings}">
-          <th scope="row"><span th:text="${building.id}"></span></th>
-          <td><span th:text="${building.name}"></span></td>
-          <td><span th:text="${building.address}"></span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    </br>
+    <div class="col-sm-6 d-flex justify-content-end">
+      <button type="submit" class="btn btn-success ms-auto">
+        Atualizar local
+      </button>
+    </div>
+  </form>
 </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
