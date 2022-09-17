@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CmmsUfprApplication {
+public class ArrumaUFPRApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(CmmsUfprApplication.class, args);
+        SpringApplication.run(ArrumaUFPRApplication.class, args);
     }
 
 }

@@ -1,4 +1,4 @@
-CREATE DATABASE ufprcmms;
+CREATE DATABASE arrumaufpr;
 
 CREATE TABLE IF NOT EXISTS "role" (
     id serial PRIMARY KEY,
