@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Home</title>
+  <title>AjudaUFPR</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" rel="stylesheet">
   <link th:href="@{/styles/sidebar.css}" rel="stylesheet" />
@@ -13,34 +13,41 @@
 <div class="height-100">
   </br>
   <div class="row my-3">
-    <div class="col-10">
-      <h1>Locais</h1>
-    </div>
-    <div class="col-2">
-      <a class="btn btn-success" href="/create-location" role="button">Adicionar local</a>
+    <div class="col-10 d-flex justify-content-center">
+      <h1>Cadastro de Local</h1>
     </div>
   </div>
+  <div class="row my-3">
+    <div class="col-10 d-flex justify-content-end">
+      <a class="btn btn-primary" href="/create-location" role="button">Incluir</a>
+    </div>
+  </div>
+  </br>
   <div class="row">
-    <table class="table">
-      <thead>
-      <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Nome</th>
-        <th scope="col">Descrição</th>
-        <th scope="col">Editar</th>
-        <th scope="col">Excluir</th>
-      </tr>
-      </thead>
-      <tbody>
-        <tr th:each="location : ${locations}">
-          <th scope="row"><span th:text="${location.id}"></span></th>
-          <td><span th:text="${location.name}"></span></td>
-          <td><span th:text="${location.description}"></span></td>
-          <td><a th:href="@{/update-location/{id}(id=${location.id})}" th:method="get"><i class="bx bx-edit nav_icon"></i></a></td>
-          <td><a th:href="@{/delete-location/{id}(id=${location.id})}" th:method="delete"><i class="bx bx-folder-minus nav_icon"></i></a></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="col-10">
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Editar</th>
+            <th scope="col">Excluir</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="location : ${locations}">
+            <th scope="row"><span th:text="${location.id}"></span></th>
+            <td><span th:text="${location.name}"></span></td>
+            <td><span th:text="${location.description}"></span></td>
+            <td><a th:href="@{/update-location/{id}(id=${location.id})}" th:method="get"><i class="bx bx-edit nav_icon"></i></a></td>
+            <td><a th:href="@{/delete-location/{id}(id=${location.id})}" th:method="delete" onclick="return confirm('Tem certeza que deseja excluir esse registro?')"><i class="bx bx-folder-minus nav_icon"></i></a></td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>
 </body>

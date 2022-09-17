@@ -30,9 +30,12 @@ public class LocationController {
 
     @GetMapping("/create-location")
     public String createLocation(Model model) {
+        model.addAttribute("title", "Adicionar Local");
+        model.addAttribute("textButton", "Salvar");
+        model.addAttribute("action", "/create-location");
         model.addAttribute("location", new LocationModel());
 
-        return "location/create-location";
+        return "location/form-location";
     }
 
     @GetMapping("/update-location/{id}")
@@ -44,9 +47,12 @@ public class LocationController {
             throw new RuntimeException(e);
         }
 
+        model.addAttribute("title", "Editar local");
+        model.addAttribute("textButton", "Salvar");
+        model.addAttribute("action", "/update-location");
         model.addAttribute("location", location);
 
-        return "location/update-location";
+        return "location/form-location";
     }
 
     @GetMapping("/delete-location/{id}")
@@ -80,7 +86,7 @@ public class LocationController {
     @PostMapping("/update-location")
     public String updateLocation(@Valid LocationModel location, BindingResult result) {
         if (result.hasFieldErrors()) {
-            return "redirect:/update-location";
+            return "redirect:/update-location/" + location.getId();
         }
 
         try {

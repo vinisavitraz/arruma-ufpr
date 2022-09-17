@@ -1,19 +1,12 @@
 document.addEventListener("DOMContentLoaded", function(event) {
 
     const showNavbar = (toggleId, navId, bodyId, headerId) =>{
-        console.log('oi');
         const toggle = document.getElementById(toggleId),
             nav = document.getElementById(navId),
             bodypd = document.getElementById(bodyId),
             headerpd = document.getElementById(headerId)
 
-        console.log(toggle);
-        console.log(nav);
-        console.log(bodypd);
-        console.log(headerpd);
-// Validate that all variables exist
         if(toggle && nav && bodypd && headerpd){
-            console.log('oi 2');
             toggle.addEventListener('click', ()=>{
 // show navbar
                 nav.classList.toggle('show')

@@ -9,11 +9,11 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ufpr.br</groupId>
-    <artifactId>CMMS-UFPR</artifactId>
+    <artifactId>AjudaUFPR</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>CMMS-UFPR</name>
-    <description>CMMS-UFPR</description>
+    <name>AjudaUFPR</name>
+    <description>UFPR building incidents management system</description>
     <properties>
         <java.version>17</java.version>
     </properties>

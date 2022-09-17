@@ -1,9 +1,16 @@
 package com.ufpr.br.cmmsufpr.location;
 
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 public class LocationModel {
 
     private int id;
+    @NotEmpty(message = "Informe o nome do local")
+    @Size(min = 1, max = 100)
     private String name;
+    @NotEmpty(message = "Informe a descrição do local")
+    @Size(min = 1, max = 250)
     private String description;
 
     public LocationModel() {

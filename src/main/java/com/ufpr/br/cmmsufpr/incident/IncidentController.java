@@ -16,10 +16,9 @@ public class IncidentController {
         try {
             incidents = IncidentRepository.getIncidents();
         } catch (SQLException e) {
-            System.out.println("deu ruim");
             throw new RuntimeException(e); //create error page or message
         }
-        System.out.println(incidents.size());
+
         model.addAttribute("incidents", incidents.size() > 0 ? incidents : null);
 
         return "incident/incidents";
