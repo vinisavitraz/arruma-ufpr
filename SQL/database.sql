@@ -14,7 +14,10 @@ CREATE SEQUENCE permission_id START 1 INCREMENT 1 MINVALUE 1 OWNED BY "permissio
 
 CREATE TABLE IF NOT EXISTS role_permissions (
     role_id INTEGER NOT NULL,
-    permission_id  INTEGER NOT NULL
+    permission_id  INTEGER NOT NULL,
+    PRIMARY KEY (role_id, permission_id),
+    FOREIGN KEY (role_id) REFERENCES "role"(id),
+    FOREIGN KEY (permission_id) REFERENCES "permission"(id)
 );
 
 CREATE TABLE IF NOT EXISTS "user" (
@@ -22,10 +25,12 @@ CREATE TABLE IF NOT EXISTS "user" (
     name VARCHAR (100) NOT NULL,
     email VARCHAR (100) NOT NULL,
     password VARCHAR (100) NOT NULL,
-    role_id INTEGER NOT NULL
+    role_id INTEGER NOT NULL,
+    FOREIGN KEY(role_id) REFERENCES "role"(id)
 );
 
 CREATE SEQUENCE user_id START 1 INCREMENT 1 MINVALUE 1 OWNED BY "user".id;
+CREATE INDEX idx_user_email ON "user"(email);
 
 CREATE TABLE IF NOT EXISTS location (
     id serial PRIMARY KEY,
@@ -34,6 +39,7 @@ CREATE TABLE IF NOT EXISTS location (
 );
 
 CREATE SEQUENCE location_id START 1 INCREMENT 1 MINVALUE 1 OWNED BY "location".id;
+CREATE INDEX idx_location_name ON "location"(name);
 
 CREATE TABLE IF NOT EXISTS object (
     id serial PRIMARY KEY,
@@ -42,6 +48,7 @@ CREATE TABLE IF NOT EXISTS object (
 );
 
 CREATE SEQUENCE object_id START 1 INCREMENT 1 MINVALUE 1 OWNED BY "object".id;
+CREATE INDEX idx_object_name ON "object"(name);
 
 CREATE TABLE IF NOT EXISTS incident_type (
     id serial PRIMARY KEY,
@@ -50,6 +57,7 @@ CREATE TABLE IF NOT EXISTS incident_type (
 );
 
 CREATE SEQUENCE incident_type_id START 1 INCREMENT 1 MINVALUE 1 OWNED BY "incident_type".id;
+CREATE INDEX idx_incident_type_name ON "incident_type"(name);
 
 CREATE TABLE IF NOT EXISTS incident (
     id serial PRIMARY KEY,
@@ -60,15 +68,22 @@ CREATE TABLE IF NOT EXISTS incident (
     end_date TIMESTAMP NULL,
     incident_type_id INTEGER NOT NULL,
     object_id INTEGER NOT NULL,
-    location_id INTEGER NOT NULL
+    location_id INTEGER NOT NULL,
+    FOREIGN KEY(incident_type_id) REFERENCES "incident_type"(id),
+    FOREIGN KEY(object_id) REFERENCES "object"(id),
+    FOREIGN KEY(location_id) REFERENCES "location"(id)
 );
 
 CREATE SEQUENCE incident_id START 1 INCREMENT 1 MINVALUE 1 OWNED BY "incident".id;
+CREATE INDEX idx_incident_status ON "incident"(status);
+CREATE INDEX idx_incident_open_date ON "incident"(open_date);
 
 CREATE TABLE IF NOT EXISTS incident_user (
     user_id INTEGER NOT NULL,
     incident_id INTEGER NOT NULL,
-    role CHAR (1) NOT NULL
+    PRIMARY KEY (user_id, incident_id),
+    FOREIGN KEY (user_id) REFERENCES "user"(id),
+    FOREIGN KEY (incident_id) REFERENCES "incident"(id)
 );
 
 CREATE TABLE IF NOT EXISTS incident_interaction (
@@ -77,10 +92,13 @@ CREATE TABLE IF NOT EXISTS incident_interaction (
     description TEXT NOT NULL,
     interaction_date TIMESTAMP NOT NULL,
     user_id INTEGER NOT NULL,
-    incident_id INTEGER NOT NULL
+    incident_id INTEGER NOT NULL,
+    FOREIGN KEY(user_id) REFERENCES "user"(id),
+    FOREIGN KEY(incident_id) REFERENCES "incident"(id)
 );
 
 CREATE SEQUENCE incident_interaction_id START 1 INCREMENT 1 MINVALUE 1 OWNED BY "incident_interaction".id;
+CREATE INDEX idx_incident_interaction_date ON "incident_interaction"(interaction_date);
 
 ##### SEED #####
 
@@ -100,4 +118,4 @@ INSERT INTO location (id, name, description) VALUES (2, 'Sala A123', '2 andar se
 INSERT INTO object (id, name, status) VALUES (1, 'Projetor', 'Ativo');
 INSERT INTO incident_type (id, name, description) VALUES (1, 'Quebrado', 'Item quebrado/Não funcional');
 INSERT INTO incident (id, title, description, status, open_date, end_date, incident_type_id, object_id, location_id)
-    VALUES (1, 'Problema no projetor', 'Projetor não funciona na sala A123', 'Aberto', '2022-09-15 10:00:00', null, 1, 1);
+    VALUES (1, 'Problema no projetor', 'Projetor não funciona na sala A123', 'Aberto', '2022-09-15 10:00:00', null, 1, 1, 1);

@@ -23,7 +23,7 @@ public class LocationController {
             throw new RuntimeException(e); //create error page or message
         }
 
-        model.addAttribute("locations", locations);
+        model.addAttribute("locations", locations.size() > 0 ? locations : null);
 
         return "location/locations";
     }
