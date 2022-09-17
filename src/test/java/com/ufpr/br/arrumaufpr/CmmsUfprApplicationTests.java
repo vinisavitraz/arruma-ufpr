@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr;
+package com.ufpr.br.arrumaufpr;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.ufpr.br.cmmsufpr.incident;
+package com.ufpr.br.arrumaufpr.incident;
 
-import com.ufpr.br.cmmsufpr.database.DatabaseConnection;
+import com.ufpr.br.arrumaufpr.database.DatabaseConnection;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

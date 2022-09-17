@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr.object;
+package com.ufpr.br.arrumaufpr.object;
 
 public class ObjectModel {
 

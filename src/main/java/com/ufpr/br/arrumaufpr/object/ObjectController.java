@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr.object;
+package com.ufpr.br.arrumaufpr.object;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

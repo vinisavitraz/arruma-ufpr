@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr.location;
+package com.ufpr.br.arrumaufpr.location;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;

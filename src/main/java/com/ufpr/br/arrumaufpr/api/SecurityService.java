@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr.api;
+package com.ufpr.br.arrumaufpr.api;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;

@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr.api;
+package com.ufpr.br.arrumaufpr.api;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

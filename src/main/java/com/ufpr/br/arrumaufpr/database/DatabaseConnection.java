@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr.database;
+package com.ufpr.br.arrumaufpr.database;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

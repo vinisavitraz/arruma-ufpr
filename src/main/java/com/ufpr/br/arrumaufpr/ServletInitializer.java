@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr;
+package com.ufpr.br.arrumaufpr;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

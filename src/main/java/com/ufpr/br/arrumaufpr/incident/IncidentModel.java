@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr.incident;
+package com.ufpr.br.arrumaufpr.incident;
 
 import java.util.Date;
 

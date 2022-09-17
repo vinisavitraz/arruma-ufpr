@@ -1,7 +1,7 @@
-package com.ufpr.br.cmmsufpr.user;
+package com.ufpr.br.arrumaufpr.user;
 
-import com.ufpr.br.cmmsufpr.user.model.PermissionModel;
-import com.ufpr.br.cmmsufpr.user.model.UserModel;
+import com.ufpr.br.arrumaufpr.user.model.PermissionModel;
+import com.ufpr.br.arrumaufpr.user.model.UserModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

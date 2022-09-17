@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr.user.model;
+package com.ufpr.br.arrumaufpr.user.model;
 
 public class UserRole {
 

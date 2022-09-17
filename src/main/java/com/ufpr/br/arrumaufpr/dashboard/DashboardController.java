@@ -1,4 +1,4 @@
-package com.ufpr.br.cmmsufpr.dashboard;
+package com.ufpr.br.arrumaufpr.dashboard;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
