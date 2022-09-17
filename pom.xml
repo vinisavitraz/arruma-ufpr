@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.ufpr.br</groupId>
-    <artifactId>AjudaUFPR</artifactId>
+    <artifactId>ArrumaUFPR</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <packaging>war</packaging>
-    <name>AjudaUFPR</name>
+    <name>ArrumaUFPR</name>
     <description>UFPR building incidents management system</description>
     <properties>
         <java.version>17</java.version>
