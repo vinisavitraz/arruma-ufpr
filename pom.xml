@@ -11,7 +11,7 @@
     <groupId>com.ufpr.br</groupId>
     <artifactId>ArrumaUFPR</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
+    <packaging>jar</packaging>
     <name>ArrumaUFPR</name>
     <description>UFPR building incidents management system</description>
     <properties>
