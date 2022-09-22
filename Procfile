@@ -1,1 +1,1 @@
-web: java -war $JAVA_OPTS -Dserver.port=$PORT target/arruma-ufpr-1.0.war
+web: java -jar $JAVA_OPTS -Dserver.port=$PORT target/arruma-ufpr-1.0.jar
