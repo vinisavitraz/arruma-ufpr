@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/dependency/* com.ufpr.br.arrumaufpr.ArrumaUFPRApplication
+web: java -jar $JAVA_OPTS -Dserver.port=$PORT target/arruma-ufpr-1.0.war
