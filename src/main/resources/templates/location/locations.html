@@ -10,28 +10,55 @@
 </head>
 <body id="body-pd">
 <div th:replace="fragments/header :: header">...</div>
-<div class="height-100">
-  </br>
-  <div class="row my-3">
-    <div class="col-10 d-flex justify-content-center">
-      <h1>Cadastro de Local</h1>
+<div class="container-fluid">
+  <br>
+  <br>
+  <div class="row ms-3">
+    <div class="col-10">
+      <h1>Locais</h1>
+    </div>
+    <div class="col-2">
+      <a class="btn btn-danger" href="/create-location" role="button">Novo local</a>
     </div>
   </div>
-  <div class="row my-3">
-    <div class="col-10 d-flex justify-content-end">
-      <a class="btn btn-primary" href="/create-location" role="button">Incluir</a>
+  <hr class="bg-dark border-1 border-top border-dark">
+  <br>
+  <br>
+  <form th:action="@{/search-location}" method="post">
+    <div class="row mx-3">
+      <div class="col-2">
+        <label for="id" class="form-label">ID</label>
+        <input type="text" name="id" id="id" value="" class="form-control">
+      </div>
+      <div class="col-4">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" name="name" id="name" value="" class="form-control">
+      </div>
     </div>
-  </div>
-  </br>
+    <br>
+    <div class="row mx-3">
+      <div class="col-2">
+        <button type="submit" class="btn btn-primary ms-auto">
+          Pesquisar
+        </button>
+      </div>
+    </div>
+  </form>
+  <br>
+  <hr class="bg-dark border-1 border-top border-dark">
+  <br>
+  <br>
   <div class="row">
     <div class="col-10">
       <div th:switch="${locations}">
-        <div th:case="null" class="d-flex justify-content-start">
-          <h4>Nenhum local cadastrado</h4>
+        <div th:case="null" class="row mx-5 d-flex justify-content-center">
+          <div class="col-4 justify-content-center">
+            <h4>Nenhum local cadastrado</h4>
+          </div>
         </div>
-        <div th:case="*">
+        <div class="row mx-5" th:case="*">
           <div class="table-responsive">
-            <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover table-striped">
               <thead>
               <tr>
                 <th scope="col">ID</th>

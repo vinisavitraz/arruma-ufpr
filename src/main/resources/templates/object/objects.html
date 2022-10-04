@@ -10,36 +10,78 @@
 </head>
 <body id="body-pd">
 <div th:replace="fragments/header :: header">...</div>
-<div class="height-100">
-  </br>
-  <div class="row my-3">
+<div class="container-fluid">
+  <br>
+  <br>
+  <div class="row ms-3">
     <div class="col-10">
       <h1>Objetos</h1>
     </div>
     <div class="col-2">
-      <a class="btn btn-success" href="/create-object" role="button">Criar objeto</a>
+      <a class="btn btn-danger" href="/create-object" role="button">Novo objeto</a>
     </div>
   </div>
+  <hr class="bg-dark border-1 border-top border-dark">
+  <br>
+  <br>
+  <form th:action="@{/search-incident}" method="post">
+    <div class="row mx-3">
+      <div class="col-2">
+        <label for="id" class="form-label">ID</label>
+        <input type="text" name="id" id="id" value="" class="form-control">
+      </div>
+      <div class="col-4">
+        <label for="name" class="form-label">Nome</label>
+        <input type="text" name="name" id="name" value="" class="form-control">
+      </div>
+      <div class="col-2">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-select form-control" name="status" id="status">
+          <option disabled selected value></option>
+          <option value="INACTIVE">Inativo</option>
+          <option value="ACTIVE">Ativo</option>
+        </select>
+      </div>
+    </div>
+    <br>
+    <div class="row mx-3">
+      <div class="col-2">
+        <button type="submit" class="btn btn-primary ms-auto">
+          Pesquisar
+        </button>
+      </div>
+    </div>
+  </form>
+  <br>
+  <hr class="bg-dark border-1 border-top border-dark">
+  <br>
+  <br>
   <div class="row">
     <div th:switch="${objects}">
-      <h4 th:case="null">Nenhum objeto cadastrado</h4>
-      <div th:case="*">
-        <table class="table">
-          <thead>
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Nome</th>
-            <th scope="col">Status</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr th:each="object : ${objects}">
-            <th scope="row"><span th:text="${object.id}"></span></th>
-            <td><span th:text="${object.name}"></span></td>
-            <td><span th:text="${object.status}"></span></td>
-          </tr>
-          </tbody>
-        </table>
+      <div th:case="null" class="row mx-5 d-flex justify-content-center">
+        <div class="col-4 justify-content-center">
+          <h4>Nenhum objeto cadastrado</h4>
+        </div>
+      </div>
+      <div class="row mx-5" th:case="*">
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped">
+            <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Status</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="object : ${objects}">
+              <th scope="row"><span th:text="${object.id}"></span></th>
+              <td><span th:text="${object.name}"></span></td>
+              <td><span th:text="${object.status}"></span></td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

@@ -79,23 +79,25 @@
             <h4>Nenhum incidente cadastrado</h4>
           </div>
         </div>
-        <div th:case="*">
-          <table class="table">
-            <thead>
-            <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Título</th>
-              <th scope="col">Status</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr th:each="incident : ${incidents}">
-              <th scope="row"><span th:text="${incident.id}"></span></th>
-              <td><span th:text="${incident.title}"></span></td>
-              <td><span th:text="${incident.status}"></span></td>
-            </tr>
-            </tbody>
-          </table>
+        <div class="row mx-5" th:case="*">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+              <thead>
+              <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Título</th>
+                <th scope="col">Status</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="incident : ${incidents}">
+                <th scope="row"><span th:text="${incident.id}"></span></th>
+                <td><span th:text="${incident.title}"></span></td>
+                <td><span th:text="${incident.status}"></span></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
