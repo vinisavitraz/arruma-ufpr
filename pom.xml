@@ -11,7 +11,7 @@
     <groupId>com.ufpr.br</groupId>
     <artifactId>ArrumaUFPR</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>ArrumaUFPR</name>
     <description>UFPR building incidents management system</description>
     <properties>
@@ -91,7 +91,7 @@
                 <version>2.0.3</version>
                 <configuration>
                     <appName>arruma-ufpr</appName>
-                    <warFile>target/arruma-ufpr-1.0.jar</warFile>
+                    <warFile>target/arruma-ufpr-1.0.war</warFile>
                 </configuration>
             </plugin>
         </plugins>
