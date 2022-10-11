@@ -18,13 +18,13 @@
       <h1>Objetos</h1>
     </div>
     <div class="col-2">
-      <a class="btn btn-danger" href="/create-object" role="button">Novo objeto</a>
+      <a class="btn btn-success" href="/create-object" role="button">Novo objeto</a>
     </div>
   </div>
   <hr class="bg-dark border-1 border-top border-dark">
   <br>
   <br>
-  <form th:action="@{/search-incident}" method="post">
+  <form th:action="@{/search-object}" method="post">
     <div class="row mx-3">
       <div class="col-2">
         <label for="id" class="form-label">ID</label>
@@ -71,6 +71,7 @@
               <th scope="col">ID</th>
               <th scope="col">Nome</th>
               <th scope="col">Status</th>
+              <th></th>
             </tr>
             </thead>
             <tbody>
@@ -78,6 +79,7 @@
               <th scope="row"><span th:text="${object.id}"></span></th>
               <td><span th:text="${object.name}"></span></td>
               <td><span th:text="${object.status}"></span></td>
+              <td><a class="btn btn-success" th:href="@{/detail-object/{id}(id=${object.id})}" th:method="get">Visualizar</a></td>
             </tr>
             </tbody>
           </table>

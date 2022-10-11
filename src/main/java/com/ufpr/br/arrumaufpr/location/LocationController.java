@@ -38,6 +38,24 @@ public class LocationController {
         return "location/form-location";
     }
 
+    @GetMapping("/detail-location/{id}")
+    public String detailLocation(Model model, @PathVariable("id") long id) {
+        LocationModel location;
+        try {
+            location = LocationRepository.getLocationByIDOrNull(id);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        model.addAttribute("title", "Editar local");
+        model.addAttribute("textButton", "Excluir");
+        model.addAttribute("action", "/update-location");
+        model.addAttribute("readOnly", true);
+        model.addAttribute("location", location);
+
+        return "location/form-location";
+    }
+
     @GetMapping("/update-location/{id}")
     public String updateLocation(Model model, @PathVariable("id") long id) {
         LocationModel location;

@@ -19,13 +19,13 @@ public class LocationRepository {
         ResultSet rs = statement.executeQuery("SELECT * FROM location ORDER BY id");
 
         while (rs.next()) {
-            LocationModel building = new LocationModel(
+            LocationModel location = new LocationModel(
                     rs.getInt("id"),
                     rs.getString("name"),
                     rs.getString("description")
             );
 
-            results.add(building);
+            results.add(location);
         }
 
         statement.close();

@@ -18,7 +18,7 @@
       <h1>Locais</h1>
     </div>
     <div class="col-2">
-      <a class="btn btn-danger" href="/create-location" role="button">Novo local</a>
+      <a class="btn btn-success" href="/create-location" role="button">Novo local</a>
     </div>
   </div>
   <hr class="bg-dark border-1 border-top border-dark">
@@ -64,8 +64,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
                 <th scope="col">Descrição</th>
-                <th scope="col">Editar</th>
-                <th scope="col">Excluir</th>
+                <th scope="col"></th>
               </tr>
               </thead>
               <tbody>
@@ -73,8 +72,9 @@
                 <th scope="row"><span th:text="${location.id}"></span></th>
                 <td><span th:text="${location.name}"></span></td>
                 <td><span th:text="${location.description}"></span></td>
-                <td><a th:href="@{/update-location/{id}(id=${location.id})}" th:method="get"><i class="bx bx-edit nav_icon"></i></a></td>
-                <td><a th:href="@{/delete-location/{id}(id=${location.id})}" th:method="delete" onclick="return confirm('Tem certeza que deseja excluir esse registro?')"><i class="bx bx-folder-minus nav_icon"></i></a></td>
+                <td><a class="btn btn-success" th:href="@{/detail-location/{id}(id=${location.id})}" th:method="get">Visualizar</a></td>
+<!--                <td><a th:href="@{/update-location/{id}(id=${location.id})}" th:method="get"><i class="bx bx-edit nav_icon"></i></a></td>-->
+<!--                <td><a th:href="@{/delete-location/{id}(id=${location.id})}" th:method="delete" onclick="return confirm('Tem certeza que deseja excluir esse registro?')"><i class="bx bx-folder-minus nav_icon"></i></a></td>-->
               </tr>
               </tbody>
             </table>

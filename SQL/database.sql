@@ -44,6 +44,7 @@ CREATE INDEX idx_location_name ON "location"(name);
 CREATE TABLE IF NOT EXISTS object (
     id serial PRIMARY KEY,
     name VARCHAR (100) NOT NULL,
+    description VARCHAR (250) NOT NULL,
     status VARCHAR (50) NOT NULL
 );
 

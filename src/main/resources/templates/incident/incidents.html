@@ -18,7 +18,7 @@
         <h1>Incidentes</h1>
       </div>
       <div class="col-2">
-        <a class="btn btn-danger" href="/create-incident" role="button">Novo incidente</a>
+        <a class="btn btn-success" href="/create-incident" role="button">Novo incidente</a>
       </div>
     </div>
     <hr class="bg-dark border-1 border-top border-dark">
@@ -87,6 +87,7 @@
                 <th scope="col">ID</th>
                 <th scope="col">Título</th>
                 <th scope="col">Status</th>
+                <th></th>
               </tr>
               </thead>
               <tbody>
@@ -94,6 +95,7 @@
                 <th scope="row"><span th:text="${incident.id}"></span></th>
                 <td><span th:text="${incident.title}"></span></td>
                 <td><span th:text="${incident.status}"></span></td>
+                <td><a class="btn btn-success" th:href="@{/detail-incident/{id}(id=${incident.id})}" th:method="get">Visualizar</a></td>
               </tr>
               </tbody>
             </table>

@@ -1,27 +1,25 @@
-package com.ufpr.br.arrumaufpr.object;
+package com.ufpr.br.arrumaufpr.incident;
 
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 
-public class ObjectModel {
+public class IncidentTypeModel {
 
     private int id;
-    @NotEmpty(message = "Informe o nome do objeto")
+    @NotEmpty(message = "Informe o nome do tipo de incidente")
     @Size(min = 1, max = 100)
     private String name;
-    @NotEmpty(message = "Informe a descrição do objeto")
+    @NotEmpty(message = "Informe a descrição do tipo de incidente")
     @Size(min = 1, max = 250)
     private String description;
-    private String status;
 
-    public ObjectModel() {
+    public IncidentTypeModel() {
     }
 
-    public ObjectModel(int id, String name, String description, String status) {
+    public IncidentTypeModel(int id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.status = status;
     }
 
     public int getId() {
@@ -48,12 +46,13 @@ public class ObjectModel {
         this.description = description;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    @Override
+    public String toString() {
+        return "IncidentTypeModel{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                '}';
     }
 
 }
