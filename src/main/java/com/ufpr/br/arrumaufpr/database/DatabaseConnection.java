@@ -8,14 +8,15 @@ public class DatabaseConnection {
 
     private static DatabaseConnection instance;
     private Connection connection;
-    private String url = "jdbc:postgresql://localhost:5432/arrumaufpr";
-    private String username = "postgres";
-    private String password = "admin";
 
     private DatabaseConnection() throws SQLException {
         try {
             Class.forName("org.postgresql.Driver");
-            this.connection = DriverManager.getConnection(this.url, this.username, this.password);
+            this.connection = DriverManager.getConnection(
+                    System.getenv("SPRING_DATASOURCE_URL"),
+                    System.getenv("SPRING_DATASOURCE_USERNAME"),
+                    System.getenv("SPRING_DATASOURCE_PASSWORD")
+            );
         } catch (ClassNotFoundException e) {
             System.out.println("Failed to connect to database. Reason: " + e.getMessage());
         }

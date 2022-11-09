@@ -38,8 +38,11 @@ Os objetivos específicos são:
 ---
 
 
+./mvnw clean package -DskipTests
 
 
+docker-compose up --remove-orphans --force-recreate --build
 
+docker-compose down -v
 
 
